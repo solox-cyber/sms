@@ -13,15 +13,44 @@
   <body>
    @if($layout == 'index')
    <div class="container-fluid">
-      <section class="col">
-          @include("studentslist");
-      </section>
-      <section class="col"></section>
+       <div class="row">
+         <section class="col">
+            @include("studentslist");
+         </section>
+         <section class="col"></section>
+    </div>
    </div>
    @elseif($layout == 'create')
 
+   <div class="container-fluid">
+       <div class="row">
+          <section class="col">
+           @include("studentslist");
+          </section>
+         <section class="col"></section>
+        </div>
+    </div>
+
    @elseif($layout == 'show')
+
+   <div class="container-fluid">
+       <div class="row">
+         <section class="col">
+           @include("studentslist");
+         </section>
+         <section class="col"></section>
+        </div>
+    </div>
+
    @elseif($layout == 'edit')
+
+   <div class="container-fluid">
+    <section class="col">
+        @include("studentslist");
+    </section>
+    <section class="col"></section>
+ </div>
+
    @endif
 
     <!-- Optional JavaScript; choose one of the two! -->
