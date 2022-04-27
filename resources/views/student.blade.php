@@ -30,6 +30,7 @@
          <section class="col">
             <form action=" {{ url('/store') }} " method="post">
                 @csrf
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form-label">CNE</label>
                     <input name="cne" type="text" class="form-control" placeholder="Enter CNE">
@@ -75,7 +76,34 @@
        <section class="col">
          @include("studentslist");
        </section>
-      <section class="col"></section>
+      <section class="col">
+        <form action=" {{ url('/update/'.$student->id) }} " method="post">
+            @csrf
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">CNE</label>
+                <input value="{{ $student->cne }}" name="cne" type="text" class="form-control" placeholder="Enter CNE">
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label">First Name</label>
+              <input value="{{ $student->firstName }}" name="firstName" type="text" class="form-control" placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Second Name</label>
+                <input value="{{ $student->secondName }}" name="secondName" type="text" class="form-control" placeholder="Enter second name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Age</label>
+                <input value="{{ $student->age }}" name="age" type="text" class="form-control" placeholder="Enter age">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Speciality</label>
+                <input value="{{ $student->speciality }}" name="speciality" type="text" class="form-control" placeholder="Enter speciality">
+              </div>
+           <input type="submit" class="btn btn-info" value="Update">
+           <input type="reset" class="btn btn-warning" value="Reset">
+          </form>
+      </section>
     </div>
   </div>
 
