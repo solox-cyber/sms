@@ -27,7 +27,33 @@
           <section class="col">
            @include("studentslist");
           </section>
-         <section class="col"></section>
+         <section class="col">
+            <form action=" {{ url('/store') }} " method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label">CNE</label>
+                    <input name="cne" type="text" class="form-control" placeholder="Enter CNE">
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="form-label">First Name</label>
+                  <input name="firstName" type="text" class="form-control" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label">Second Name</label>
+                    <input name="secondName" type="text" class="form-control" placeholder="Enter second name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label">Age</label>
+                    <input name="age" type="text" class="form-control" placeholder="Enter age">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label">Speciality</label>
+                    <input name="speciality" type="text" class="form-control" placeholder="Enter speciality">
+                  </div>
+               <input type="submit" class="btn btn-info" value="Save">
+               <input type="reset" class="btn btn-warning" value="Reset">
+              </form>
+         </section>
         </div>
     </div>
 
@@ -45,11 +71,13 @@
    @elseif($layout == 'edit')
 
    <div class="container-fluid">
-    <section class="col">
-        @include("studentslist");
-    </section>
-    <section class="col"></section>
- </div>
+    <div class="row">
+       <section class="col">
+         @include("studentslist");
+       </section>
+      <section class="col"></section>
+    </div>
+  </div>
 
    @endif
 
